@@ -29,7 +29,7 @@
     "test": "node test/index.js"
   },
   "dependencies": {
-    "@lacussoft/num-only": "1.*"
+    "@lacussoft/cpf-fmt": "1.*"
   },
   "devDependencies": {
     "@babel/cli": "7.*",
