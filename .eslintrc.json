@@ -13,9 +13,11 @@
     "ecmaVersion": 2018
   },
   "rules": {
-    "semi": "off",
-    "padded-blocks": "off",
     "arrow-parens": "off",
-    "object-curly-spacing": "off"
+    "guard-for-in": "off",
+    "object-curly-spacing": "off",
+    "padded-blocks": "off",
+    "prefer-rest-params": "off",
+    "semi": "off"
   }
 }
