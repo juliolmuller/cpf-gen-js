@@ -1,3 +1,4 @@
+const numOnly = require('@lacussoft/num-only')
 const cpfFmt = require('@lacussoft/cpf-fmt')
 
 /**
@@ -35,8 +36,12 @@ const numGen = (length) => {
  */
 const cpfGen = function(options) {
 
-  options = mergeOptions(options)
+  if (arguments[1] !== undefined && typeof(arguments[1]) !== 'string' && numOnly(arguments[1]).length !== 9) {
+    throw new Error(`'${arguments[1]}' should be a string of 9 numbers length`)
+  }
+
   let cpf = arguments[1] || numGen(9)
+  options = mergeOptions(options)
 
   for (const nextNumIndex of [9, 10]) {
     let sum = 0

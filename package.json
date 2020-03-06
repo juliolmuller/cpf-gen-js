@@ -1,6 +1,6 @@
 {
   "name": "@lacussoft/cpf-gen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Basic function to generate valid CPF (Brazilian ID document).",
   "author": "Julio L. Muller",
   "license": "MIT",
@@ -29,7 +29,8 @@
     "test": "node test/index.js"
   },
   "dependencies": {
-    "@lacussoft/cpf-fmt": "1.*"
+    "@lacussoft/cpf-fmt": "1.*",
+    "@lacussoft/num-only": "1.*"
   },
   "devDependencies": {
     "@babel/cli": "7.*",

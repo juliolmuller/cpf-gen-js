@@ -117,7 +117,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"uKn2":[function(require,module,exports) {
+})({"GXLD":[function(require,module,exports) {
+var define;
+parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcelRequire,u="function"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i="function"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&"string"==typeof t)return u(t);var c=new Error("Cannot find module '"+t+"'");throw c.code="MODULE_NOT_FOUND",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({"Focm":[function(require,module,exports) {
+module.exports=function(e){return String(e).replace(/\D/g,"")};
+},{}]},{},["Focm"], null)
+
+},{}],"uKn2":[function(require,module,exports) {
 var define;
 // modules are defined as an array
 // [ module function, map of requires ]
@@ -385,6 +391,8 @@ exports.default = default_1;
 module.exports = require('./cpfFmt.ts').default;
 },{"./cpfFmt.ts":"VRRp"}]},{},["Focm"], null)
 },{}],"rqMW":[function(require,module,exports) {
+var numOnly = require('@lacussoft/num-only');
+
 var cpfFmt = require('@lacussoft/cpf-fmt');
 /**
  * Default options when runiing 'cpfGen' function
@@ -426,8 +434,12 @@ var numGen = function numGen(length) {
 
 
 var cpfGen = function cpfGen(options) {
-  options = mergeOptions(options);
+  if (arguments[1] !== undefined && typeof arguments[1] !== 'string' && numOnly(arguments[1]).length !== 9) {
+    throw new Error("'".concat(arguments[1], "' should be a string of 9 numbers length"));
+  }
+
   var cpf = arguments[1] || numGen(9);
+  options = mergeOptions(options);
 
   for (var _i = 0, _arr = [9, 10]; _i < _arr.length; _i++) {
     var nextNumIndex = _arr[_i];
@@ -450,7 +462,7 @@ var cpfGen = function cpfGen(options) {
 };
 
 module.exports = cpfGen;
-},{"@lacussoft/cpf-fmt":"uKn2"}],"UeJd":[function(require,module,exports) {
+},{"@lacussoft/num-only":"GXLD","@lacussoft/cpf-fmt":"uKn2"}],"UeJd":[function(require,module,exports) {
 window.cpfGen = require('./core');
 },{"./core":"rqMW"}]},{},["UeJd"], null)
 //# sourceMappingURL=/cpf-gen.js.map
