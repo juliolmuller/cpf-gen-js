@@ -1,6 +1,19 @@
 const numOnly = require('@lacussoft/num-only')
 
 /**
+ * Default options when runiing 'cpfGen' function
+ *
+ * @constant {object}
+ */
+const DEFAULT_OPTIONS = {
+  format: false,
+}
+
+const mergeOptions = (options) => {
+  return Object.assign({}, DEFAULT_OPTIONS, options)
+}
+
+/**
  * Generate a string of integer numbers
  *
  * @param {number} length Number of digits to be generated
