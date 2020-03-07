@@ -8,9 +8,10 @@
     "lacussoft",
     "cpf",
     "gen",
-    "generate cpf",
-    "cpf generator",
-    "gerador cpf",
+    "gerar",
+    "gerador",
+    "generate",
+    "generator",
     "br"
   ],
   "repository": {
@@ -36,7 +37,7 @@
     "@babel/cli": "7.*",
     "@babel/core": "7.*",
     "@babel/preset-env": "7.*",
-    "@lacussoft/cpf-val": "1.*",
+    "cpf-check": "3.*",
     "eslint": "6.*",
     "eslint-config-google": "*",
     "jest": "25.*",
