@@ -18,6 +18,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-magic-numbers": "off",
     "semi": ["error", "always"],
     "semi-style": ["error", "last"]
   }
