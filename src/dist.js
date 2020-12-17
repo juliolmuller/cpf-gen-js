@@ -1,1 +1,0 @@
-window.cpfGen = require('./core')
