@@ -9,7 +9,7 @@ import numberGenerator from './number-generator';
  * @param {CpfGeneratorOptions} [options]
  * @return {string}
  */
-const cpfGen = function (options = {}) {
+export const cpfGen = function (options = {}) {
   const userOptions = mergeOptions(options);
   const baseSequence = numOnly(userOptions.prefix);
   const prefixLength = baseSequence.length;

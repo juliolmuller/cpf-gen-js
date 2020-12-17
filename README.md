@@ -22,7 +22,7 @@ $ npm install @lacussoft/cpf-gen
 import cpfGen from '@lacussoft/cpf-gen'
 
 // Common JS
-const cpfGen = require('@lacussoft/cpf-gen').default
+const { cpfGen } = require('@lacussoft/cpf-gen')
 ```
 
 or import it through your HTML file, using CDN:

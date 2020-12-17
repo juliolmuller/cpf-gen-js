@@ -1,4 +1,4 @@
-const cpfGen = require('../src').default;
+const { cpfGen } = require('../src');
 const { validate } = require('cpf-check');
 
 test('Result length equals to 11 (no formatting)', () => {
