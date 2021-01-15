@@ -4,5 +4,6 @@ export type CpfGeneratorOptions = {
   prefix?: string;
 };
 
-export const cpfGen: (options?: CpfGeneratorOptions) => string;
+declare const cpfGen: (options?: CpfGeneratorOptions) => string;
+
 export default cpfGen;
