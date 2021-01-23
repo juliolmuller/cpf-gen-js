@@ -1,4 +1,4 @@
-const { cpfGen } = require('../src');
+const cpfGen = require('../src');
 
 test('Prefixed value cannot accept string with more than 9 digits', () => {
   expect(() => cpfGen({ prefix: '1234567890' })).toThrow(Error);

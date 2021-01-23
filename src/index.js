@@ -1,43 +1,7 @@
-import cpfFmt from '@lacussoft/cpf-fmt';
-import numOnly from '@lacussoft/num-only';
-import mergeOptions from './merge-options';
-import numberGenerator from './number-generator';
+/* eslint-env node */
+const cpfGen = require('./cpf-gen').default;
 
-/**
- * Generate a valid CPF (Brazilian ID document) numeric sequence.
- *
- * @param {CpfGeneratorOptions} [options]
- * @return {string}
- */
-export const cpfGen = function (options = {}) {
-  const userOptions = mergeOptions(options);
-  const baseSequence = numOnly(userOptions.prefix);
-  const prefixLength = baseSequence.length;
+module.exports = cpfGen;
 
-  if (prefixLength < 0 || prefixLength > 9) {
-    throw new Error('Option "prefix" must be a string containing between 1 and 9 digits.');
-  }
-
-  const cpfSequence = baseSequence
-    .split('')
-    .map(Number)
-    .concat(numberGenerator(9 - prefixLength));
-
-  [9, 10].forEach((nextNumIndex) => {
-    let factor = nextNumIndex + 1;
-    let sum = 0;
-
-    for (let n = 0; n < nextNumIndex; n++, factor--) {
-      sum += cpfSequence[n] * factor;
-    }
-
-    const remainder = 11 - (sum % 11);
-    cpfSequence.push(remainder > 9 ? 0 : remainder);
-  });
-
-  return userOptions.format
-    ? cpfFmt(cpfSequence.join(''))
-    : cpfSequence.join('');
-};
-
-export default cpfGen;
+// Allow use of default import with ES module syntax
+module.exports.default = cpfGen;
